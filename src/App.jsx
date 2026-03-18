@@ -149,11 +149,13 @@ const App = () => {
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? (darkMode ? 'bg-black/90' : 'bg-white/90') + ' backdrop-blur-md py-4 border-b' + (darkMode ? ' border-white/10' : ' border-gray-200') : (darkMode ? 'bg-transparent' : 'bg-transparent') + ' py-8'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => scrollToSection('inicio')}>
-            <div className={`w-10 h-10 ${darkMode ? 'bg-white' : 'bg-black'} rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform`}>
-              <span className={`${darkMode ? 'text-black' : 'text-white'} font-black text-xl`}>P</span>
-            </div>
-            <span className={`${darkMode ? 'text-white' : 'text-black'} font-bold tracking-widest text-xl`}>PROMADIN</span>
+          <div className="flex items-center gap-3 group cursor-pointer" onClick={() => scrollToSection('inicio')}>
+            <img 
+              src="/logo-promadin.webp" 
+              alt="Logo Fundación Promadín" 
+              className={`w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 flex-shrink-0`}
+            />
+            <span className={`${darkMode ? 'text-white' : 'text-black'} font-bold tracking-widest text-xl`}>PROMADÍN</span>
           </div>
 
           {/* Desktop Menu */}
@@ -440,11 +442,13 @@ const App = () => {
       {/* Footer */}
       <footer className={`py-12 px-6 border-t ${darkMode ? 'bg-black border-white/10 text-center' : 'bg-white border-gray-200'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${darkMode ? 'bg-white' : 'bg-black'}`}>
-              <span className={`font-black text-sm ${darkMode ? 'text-black' : 'text-white'}`}>P</span>
-            </div>
-            <span className={`font-bold tracking-widest ${darkMode ? 'text-white' : 'text-black'}`}>PROMADIN</span>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/logo-promadin.webp" 
+              alt="Logo Fundación Promadín" 
+              className="w-12 h-12 object-contain flex-shrink-0"
+            />
+            <span className={`font-bold tracking-widest ${darkMode ? 'text-white' : 'text-black'}`}>PROMADÍN</span>
           </div>
           <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>
             © 2026 Fundación Promadin. Todos los derechos reservados.
