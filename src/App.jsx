@@ -243,17 +243,11 @@ const App = () => {
               Desde 1995
             </div>
             <h1 className={`text-6xl md:text-8xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} leading-none mb-8`}>
-              EL PODER <br/>DE <span className={`${darkMode ? 'text-zinc-600' : 'text-blue-600'} italic`}>INCLUIR</span>.
+              UN ESPACIO <br/>PARA <span className={`${darkMode ? 'text-zinc-600' : 'text-blue-600'} italic`}>SER Y CRECER</span>.
             </h1>
             <p className={`text-xl leading-relaxed mb-8 max-w-xl ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>
               Somos la Fundación Promadin, una organización sin ánimo de lucro que trabaja para la educación de jóvenes y adultos con discapacidad intelectual. Potenciamos capacidades para el desarrollo personal y social.
             </p>
-            <button 
-              onClick={() => scrollToSection('sobre-nosotros')}
-              className={`flex items-center gap-3 px-8 py-4 rounded-full font-bold transition-all hover:gap-5 ${darkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
-            >
-              CONÓCENOS <ArrowRight size={20} />
-            </button>
           </div>
           <div className="animate-in fade-in zoom-in duration-1000 order-last md:order-none">
             <div className="relative">
@@ -277,8 +271,21 @@ const App = () => {
       </section>
 
       {/* Sobre Nosotros */}
-      <section id="sobre-nosotros" className={`py-32 ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="sobre-nosotros" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
+        <div className="absolute inset-0 overflow-hidden z-0">
+          {darkMode ? (
+            <>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-blue-500/5 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-500/5 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+            </>
+          ) : (
+            <>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-blue-200/30 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-200/30 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+            </>
+          )}
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle 
             title="Nuestra Esencia" 
             subtitle="Comprometidos con el ejercicio pleno de los derechos y la inclusión social de jóvenes y adultos."
@@ -304,8 +311,23 @@ const App = () => {
       </section>
 
       {/* Talleres */}
-      <section id="talleres" className={`py-32 ${darkMode ? 'bg-black' : 'bg-white'} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="talleres" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-black' : 'bg-white'} transition-colors duration-300`}>
+        <div className="absolute inset-0 overflow-hidden z-0">
+          {darkMode ? (
+            <>
+              <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500/8 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+              <div className="absolute -bottom-1/4 -left-1/3 w-96 h-96 bg-gradient-to-tr from-emerald-500/8 via-transparent to-transparent rounded-full blur-3xl animate-float-delayed"></div>
+              <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
+            </>
+          ) : (
+            <>
+              <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-200/30 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+              <div className="absolute -bottom-1/4 -left-1/3 w-96 h-96 bg-gradient-to-tr from-emerald-200/30 via-transparent to-transparent rounded-full blur-3xl animate-float-delayed"></div>
+              <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-b from-transparent via-blue-200/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
+            </>
+          )}
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle 
             title="Programas y Talleres" 
             subtitle="Espacios diseñados para el crecimiento, la autonomía y el descubrimiento de talentos."
@@ -325,10 +347,25 @@ const App = () => {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className={`py-32 px-4 sm:px-6 ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto px-2 sm:px-6">
+      <section id="contacto" className={`py-32 px-4 sm:px-6 relative overflow-hidden ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
+        <div className="absolute inset-0 overflow-hidden z-0">
+          {darkMode ? (
+            <>
+              <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-pink-500/5 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+              <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-l from-orange-500/5 via-transparent to-transparent rounded-full blur-3xl animate-float-delayed"></div>
+              <div className="absolute top-0 left-1/2 w-96 h-64 bg-gradient-to-b from-red-500/5 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '9s' }}></div>
+            </>
+          ) : (
+            <>
+              <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-pink-200/30 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+              <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-l from-orange-200/30 via-transparent to-transparent rounded-full blur-3xl animate-float-delayed"></div>
+              <div className="absolute top-0 left-1/2 w-96 h-64 bg-gradient-to-b from-red-200/20 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '9s' }}></div>
+            </>
+          )}
+        </div>
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 relative z-10">
           <SectionTitle title="Contacto" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start relative z-10">
             <div className="space-y-8 lg:space-y-12 w-full">
               <div className="space-y-6 lg:space-y-8">
                 <div className={`flex items-center gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-3 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
@@ -466,6 +503,22 @@ const App = () => {
           animation: fadeIn linear both;
           animation-timeline: view();
           animation-range: entry 5% cover 30%;
+        }
+        @keyframes float {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          33% { transform: translate(30px, -30px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        @keyframes float-delayed {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          33% { transform: translate(-30px, 30px) rotate(120deg); }
+          66% { transform: translate(20px, -20px) rotate(240deg); }
+        }
+        .animate-float {
+          animation: float 20s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed 24s ease-in-out infinite 4s;
         }
       `}</style>
     </div>
