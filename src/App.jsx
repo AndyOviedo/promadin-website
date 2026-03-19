@@ -155,7 +155,7 @@ const App = () => {
               alt="Logo Fundación Promadín" 
               className={`w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 flex-shrink-0`}
             />
-            <span className={`${darkMode ? 'text-white' : 'text-black'} font-bold tracking-widest text-xl`}>PROMADÍN</span>
+            <span className={`${darkMode ? 'text-white' : 'text-black'} font-bold tracking-widest text-xl`}>Fundación Promadin</span>
           </div>
 
           {/* Desktop Menu */}
@@ -325,55 +325,55 @@ const App = () => {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className={`py-32 ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="contacto" className={`py-32 px-4 sm:px-6 ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-6">
           <SectionTitle title="Contacto" />
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-8 lg:space-y-12 w-full">
               <div className="space-y-6 lg:space-y-8">
-                <div className={`flex items-start lg:items-center gap-4 lg:gap-6 p-4 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
+                <div className={`flex items-center gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-3 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
                   darkMode ? 'hover:bg-white/5' : 'hover:bg-gray-100'
                 }`}>
-                  <div className={`p-4 rounded-full flex-shrink-0 transition-all group-hover:transition-all ${
+                  <div className={`p-3 sm:p-4 rounded-full flex-shrink-0 transition-all group-hover:transition-all ${
                     darkMode 
                       ? 'bg-white/5 group-hover:bg-white group-hover:text-black' 
                       : 'bg-gray-200 group-hover:bg-gray-900 group-hover:text-white'
                   }`}>
-                    <Mail size={24} className={darkMode ? 'text-white' : 'text-gray-900'} />
+                    <Mail size={20} className={darkMode ? 'text-white' : 'text-gray-900'} />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className={`uppercase text-xs tracking-widest font-bold ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>Correo</p>
-                    <p className={`text-base lg:text-lg break-words ${darkMode ? 'text-white' : 'text-gray-900'}`}>fundacion_promadin@hotmail.com</p>
+                    <p className={`text-xs sm:text-sm md:text-base lg:text-lg break-words overflow-hidden text-ellipsis ${darkMode ? 'text-white' : 'text-gray-900'}`}>fundacion_promadin@hotmail.com</p>
                   </div>
                 </div>
-                <div className={`flex items-start lg:items-center gap-4 lg:gap-6 p-4 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
+                <div className={`flex items-center gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-3 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
                   darkMode ? 'hover:bg-white/5' : 'hover:bg-gray-100'
                 }`}>
-                  <div className={`p-4 rounded-full flex-shrink-0 transition-all ${
+                  <div className={`p-3 sm:p-4 rounded-full flex-shrink-0 transition-all ${
                     darkMode 
                       ? 'bg-white/5 group-hover:bg-white group-hover:text-black' 
                       : 'bg-gray-200 group-hover:bg-gray-900 group-hover:text-white'
                   }`}>
-                    <Phone size={24} className={darkMode ? 'text-white' : 'text-gray-900'} />
+                    <Phone size={20} className={darkMode ? 'text-white' : 'text-gray-900'} />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className={`uppercase text-xs tracking-widest font-bold ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>Llámanos</p>
-                    <p className={`text-base lg:text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>316 2370280</p>
+                    <p className={`text-xs sm:text-sm md:text-base lg:text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>316 2370280</p>
                   </div>
                 </div>
-                <div className={`flex items-start lg:items-center gap-4 lg:gap-6 p-4 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
+                <div className={`flex items-center gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-3 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
                   darkMode ? 'hover:bg-white/5' : 'hover:bg-gray-100'
                 }`}>
-                  <div className={`p-4 rounded-full flex-shrink-0 transition-all ${
+                  <div className={`p-3 sm:p-4 rounded-full flex-shrink-0 transition-all ${
                     darkMode 
                       ? 'bg-white/5 group-hover:bg-white group-hover:text-black' 
                       : 'bg-gray-200 group-hover:bg-gray-900 group-hover:text-white'
                   }`}>
-                    <MapPin size={24} className={darkMode ? 'text-white' : 'text-gray-900'} />
+                    <MapPin size={20} className={darkMode ? 'text-white' : 'text-gray-900'} />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className={`uppercase text-xs tracking-widest font-bold ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>Dirección</p>
-                    <p className={`text-base lg:text-lg break-words ${darkMode ? 'text-white' : 'text-gray-900'}`}>Transversal 29 A bis # 29-59 Sur, Bogotá</p>
+                    <p className={`text-xs sm:text-sm md:text-base lg:text-lg break-words ${darkMode ? 'text-white' : 'text-gray-900'}`}>Transversal 29 A bis # 29-59 Sur, Bogotá</p>
                   </div>
                 </div>
               </div>
@@ -406,10 +406,10 @@ const App = () => {
               </div>
             </div>
 
-            <div className={`w-full h-96 lg:h-full lg:min-h-[500px] rounded-3xl overflow-hidden border transition-all ${
+            <div className={`relative w-full h-60 sm:h-72 md:h-96 lg:min-h-[500px] rounded-2xl md:rounded-3xl overflow-hidden border transition-all ${
               darkMode 
-                ? 'border-white/10 grayscale hover:grayscale-0' 
-                : 'border-gray-200 grayscale hover:grayscale-0'
+                ? 'border-white/10 md:grayscale md:hover:grayscale-0' 
+                : 'border-gray-200 md:grayscale md:hover:grayscale-0'
             }`}>
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.019281063816!2d-74.11703332314629!3d4.590562695384049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9928f9e001e5%3A0x11cc49b1d34c73a7!2sFundaci%C3%B3n%20Promadin!5e0!3m2!1ses!2sco!4v1773805553702!5m2!1ses!2sco"
@@ -440,15 +440,15 @@ const App = () => {
       </div>
 
       {/* Footer */}
-      <footer className={`py-12 px-6 border-t ${darkMode ? 'bg-black border-white/10 text-center' : 'bg-white border-gray-200'} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <footer className={`py-12 px-6 border-t ${darkMode ? 'bg-black border-white/10' : 'bg-white border-gray-200'} transition-colors duration-300`}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-center gap-8 text-center md:text-left">
           <div className="flex items-center gap-3">
             <img 
               src="/logo-promadin.webp" 
               alt="Logo Fundación Promadín" 
               className="w-12 h-12 object-contain flex-shrink-0"
             />
-            <span className={`font-bold tracking-widest ${darkMode ? 'text-white' : 'text-black'}`}>PROMADÍN</span>
+            <span className={`font-bold tracking-widest ${darkMode ? 'text-white' : 'text-black'}`}>Fundación Promadin</span>
           </div>
           <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>
             © 2026 Fundación Promadin. Todos los derechos reservados.
