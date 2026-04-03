@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { 
   Heart, 
   Users, 
@@ -92,7 +92,7 @@ const App = () => {
     setIsMenuOpen(false);
   };
 
-  const SectionTitle = ({ title, subtitle }) => (
+  const SectionTitle = memo(({ title, subtitle }) => (
     <div className="mb-16 text-center reveal">
       <h2 className={`text-4xl md:text-5xl font-light tracking-tighter mb-4 uppercase ${darkMode ? 'text-white' : 'text-gray-900'}`}>
         {title}
@@ -100,9 +100,9 @@ const App = () => {
       <div className={`w-20 h-1 mx-auto mb-6 opacity-30 ${darkMode ? 'bg-white' : 'bg-black'}`}></div>
       {subtitle && <p className={`max-w-2xl mx-auto text-lg ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>{subtitle}</p>}
     </div>
-  );
+  ));
 
-  const MissionCard = ({ icon: Icon, title, content }) => (
+  const MissionCard = memo(({ icon: Icon, title, content }) => (
     <div className={`p-8 border rounded-2xl hover:transition-all duration-500 group ${
       darkMode
         ? 'bg-white/5 border-white/10 hover:bg-white/10'
@@ -118,9 +118,9 @@ const App = () => {
       <h3 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>{title}</h3>
       <p className={`leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>{content}</p>
     </div>
-  );
+  ));
 
-  const WorkshopCard = ({ icon: Icon, title, subtitle }) => (
+  const WorkshopCard = memo(({ icon: Icon, title, subtitle }) => (
     <div className={`cursor-pointer flex items-start p-6 border rounded-xl hover:transition-all group ${
       darkMode
         ? 'bg-zinc-900 border-zinc-800 hover:border-white/40'
@@ -138,7 +138,7 @@ const App = () => {
         {subtitle && <p className={`text-sm mt-1 ${darkMode ? 'text-zinc-500' : 'text-gray-600'}`}>{subtitle}</p>}
       </div>
     </div>
-  );
+  ));
 
   const workshops = [
     {
@@ -445,20 +445,39 @@ const App = () => {
       {isWorkshopModalOpen && selectedWorkshop && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={closeWorkshopModal}>
           <div className="relative w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="absolute top-4 right-4 rounded-full p-2 bg-white/20 text-white hover:bg-white/40" 
+            <button
+              className="absolute top-4 right-4 rounded-full p-2 bg-white/20 text-white hover:bg-white/40 z-10"
               onClick={closeWorkshopModal}
               aria-label="Cerrar modal"
             >
               ✕
             </button>
-            <img
-              src={selectedWorkshop.image}
-              alt={selectedWorkshop.title}
-              onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/1200x800?text=Imagen+no+disponible'; }}
-              className="w-full h-64 md:h-96 object-cover rounded-2xl mb-5"
-              loading="lazy"
-            />
+            <div className="relative">
+              {/* Overlay de protección sutil */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 rounded-2xl pointer-events-none z-5"></div>
+              <img
+                src={selectedWorkshop.image}
+                alt={selectedWorkshop.title}
+                onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/1200x800?text=Imagen+no+disponible'; }}
+                className="w-full h-64 md:h-96 object-cover rounded-2xl mb-5 select-none pointer-events-none"
+                loading="lazy"
+                style={{
+                  WebkitUserSelect: 'none',
+                  MozUserSelect: 'none',
+                  msUserSelect: 'none',
+                  userSelect: 'none',
+                  WebkitTouchCallout: 'none',
+                  WebkitUserDrag: 'none',
+                  KhtmlUserDrag: 'none',
+                  MozUserDrag: 'none',
+                  OUserDrag: 'none',
+                  userDrag: 'none'
+                }}
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-3 text-white">{selectedWorkshop.title}</h3>
             <p className="text-sm mb-4 text-white/80">{selectedWorkshop.subtitle}</p>
             <p className="text-base text-white/90">{selectedWorkshop.description}</p>

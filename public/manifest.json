@@ -1,0 +1,43 @@
+{
+  "name": "Fundación Promadin - Inclusión Social y Educación",
+  "short_name": "Promadin",
+  "description": "Talleres inclusivos para jóvenes y adultos con discapacidad intelectual. Educación, arte, deporte y tecnología en Bogotá.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-CO",
+  "categories": ["education", "social", "health"],
+  "icons": [
+    {
+      "src": "/logo-promadin.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-promadin.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Talleres",
+      "short_name": "Talleres",
+      "description": "Ver nuestros talleres disponibles",
+      "url": "/#talleres",
+      "icons": [{ "src": "/logo-promadin.webp", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Información de contacto",
+      "url": "/#contacto",
+      "icons": [{ "src": "/logo-promadin.webp", "sizes": "96x96" }]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Permitir indexación de todas las páginas
+Allow: /#inicio
+Allow: /#sobre-nosotros
+Allow: /#talleres
+Allow: /#contacto
+
+# Archivos importantes para SEO
+Allow: /manifest.json
+Allow: /sw.js
+
+# No indexar archivos de desarrollo
+Disallow: /src/
+Disallow: /node_modules/
+
+# Sitemap (cuando esté disponible)
+# Sitemap: https://promadin.org/sitemap.xml
+
+# Crawl delay para ser amable con el servidor
+Crawl-delay: 1
