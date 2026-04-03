@@ -20,6 +20,8 @@ import {
   Brain, 
   TreeDeciduous, 
   Smile,
+  DollarSign,
+  Beaker,
   Mail,
   Phone,
   MapPin,
@@ -39,6 +41,18 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+  const [selectedWorkshop, setSelectedWorkshop] = useState(null);
+  const [isWorkshopModalOpen, setIsWorkshopModalOpen] = useState(false);
+
+  const openWorkshopModal = (workshop) => {
+    setSelectedWorkshop(workshop);
+    setIsWorkshopModalOpen(true);
+  };
+
+  const closeWorkshopModal = () => {
+    setIsWorkshopModalOpen(false);
+    setSelectedWorkshop(null);
+  };
 
   // Cargar modo guardado del localStorage
   useEffect(() => {
@@ -107,12 +121,12 @@ const App = () => {
   );
 
   const WorkshopCard = ({ icon: Icon, title, subtitle }) => (
-    <div className={`flex items-start p-6 border rounded-xl hover:transition-all group ${
+    <div className={`cursor-pointer flex items-start p-6 border rounded-xl hover:transition-all group ${
       darkMode
         ? 'bg-zinc-900 border-zinc-800 hover:border-white/40'
         : 'bg-white/60 border-gray-200 hover:border-gray-400'
     }`}>
-      <div className={`mr-5 p-3 rounded-lg group-hover:transition-colors ${
+      <div className={`mr-5 p-3 rounded-lg group-hover:transition-colors group-hover:scale-110 transition-transform duration-300 ${
         darkMode
           ? 'bg-zinc-800 group-hover:bg-white group-hover:text-black'
           : 'bg-gray-300 group-hover:bg-gray-900 group-hover:text-white'
@@ -127,21 +141,97 @@ const App = () => {
   );
 
   const workshops = [
-    { icon: ChefHat, title: "Taller de Panadería y Cocina", subtitle: "Cocinando trocitos de amor" },
-    { icon: Dumbbell, title: "Taller de Recreación y Deporte", subtitle: null },
-    { icon: Palette, title: "Taller de Arte", subtitle: "Coloreando Expresiones" },
-    { icon: Home, title: "Taller de Habilidades de la Vida Diaria", subtitle: null },
-    { icon: Sparkles, title: "Taller Descubriendo mi Pasión", subtitle: null },
-    { icon: Settings, title: "Taller de Hábitos Transformadores", subtitle: null },
-    { icon: Sprout, title: "Taller: Sembrando sueños en la Huerta Mágica", subtitle: null },
-    { icon: Mic2, title: "Fonoaudiología", subtitle: null },
-    { icon: ShoppingBag, title: "Taller de Traperos y Bolsas", subtitle: null },
-    { icon: Monitor, title: "Taller de Sistemas", subtitle: null },
-    { icon: Stethoscope, title: "Terapia Física", subtitle: "Sec. Salud" },
-    { icon: UserCheck, title: "Trabajo Social", subtitle: "Sec. Salud" },
-    { icon: Brain, title: "Psicología", subtitle: "Sec. Salud" },
-    { icon: TreeDeciduous, title: "Taller de Jardín Botánico", subtitle: "Sembrando Ideas" },
-    { icon: Smile, title: "Talleres de Recreación", subtitle: "IDRD" },
+    {
+      icon: Sparkles,
+      title: "Creando sueños con tus manos",
+      subtitle: "Manualidades y creatividad",
+      description: "Actividades prácticas para desarrollar destrezas motrices, artísticas y de autoestima.",
+      image: "/Talleres/01.webp"
+    },
+    {
+      icon: DollarSign,
+      title: "Descubriendo el valor del dinero",
+      subtitle: "Educación financiera básica",
+      description: "Taller para aprender sobre ahorro, presupuestos y el uso responsable del dinero.",
+      image: "/Talleres/02.webp"
+    },
+    {
+      icon: Beaker,
+      title: "Exploradores de la ciencia",
+      subtitle: "Experimentos y descubrimientos",
+      description: "Investigamos y experimentamos con proyectos lúdicos para despertar la curiosidad científica.",
+      image: "/Talleres/03.webp"
+    },
+    {
+      icon: Sprout,
+      title: "Huerta Mágica: De la semilla al sueño",
+      subtitle: "Cultivo y naturaleza",
+      description: "Conocemos el ciclo de las plantas, cuidamos la huerta y cosechamos nuestros propios alimentos.",
+      image: "/Talleres/04.webp"
+    },
+    {
+      icon: Brain,
+      title: "Cerebro y cuerpo en acción",
+      subtitle: "Coordinación y bienestar",
+      description: "Ejercicios combinados para desarrollar habilidades cognitivas y motrices con alegría.",
+      image: "/Talleres/05.webp"
+    },
+    {
+      icon: Settings,
+      title: "Hábitos transformadores",
+      subtitle: "Transformación personal",
+      description: "Construimos rutinas saludables y prácticas para el crecimiento emocional y social.",
+      image: "/Talleres/06.webp"
+    },
+    {
+      icon: ChefHat,
+      title: "Cocinando trocitos de amor (panadería y cocina)",
+      subtitle: "Cocina creativa",
+      description: "Aprendemos técnicas de cocina sencilla y recetas nutritivas con cariño y compañerismo.",
+      image: "/Talleres/07.webp"
+    },
+    {
+      icon: ShoppingBag,
+      title: "Taller de bolsas y traperos",
+      subtitle: "Reciclaje y taller textil",
+      description: "Diseño y confección de prendas reutilizando materiales para fomentar sostenibilidad.",
+      image: "/Talleres/08.webp"
+    },
+    {
+      icon: Dumbbell,
+      title: "Deporte - Integración social",
+      subtitle: "Actividad física en equipo",
+      description: "Juegos, deportes inclusivos y trabajo en equipo para fortalecer relaciones y salud.",
+      image: "/Talleres/09.webp"
+    },
+    {
+      icon: Palette,
+      title: "ExpresArte",
+      subtitle: "Arte y expresión",
+      description: "Taller de pintura, música y danza para potenciar la creatividad y la comunicación.",
+      image: "/Talleres/10.webp"
+    },
+    {
+      icon: Mic2,
+      title: "Fonoaudiología",
+      subtitle: "Comunicación y lenguaje",
+      description: "Ejercicios especializados para mejorar la pronunciación, respiración y lenguaje funcional.",
+      image: "/Talleres/11.webp"
+    },
+    {
+      icon: Smile,
+      title: "IDRD (deporte)",
+      subtitle: "Integración deportiva",
+      description: "Actividades deportivas en alianza con IDRD para inclusión y desarrollo físico.",
+      image: "/Talleres/12.webp"
+    },
+    {
+      icon: Monitor,
+      title: "Mundo digital: creatividad y tecnología",
+      subtitle: "Digitaliza tu talento",
+      description: "Talleres de tecnología, multimedia y herramientas digitales para proyectos creativos.",
+      image: "/Talleres/13.webp"
+    }
   ];
 
   return (
@@ -167,7 +257,7 @@ const App = () => {
                 className={`text-sm uppercase tracking-widest ${darkMode ? 'hover:text-white text-gray-400' : 'hover:text-black text-gray-600'} transition-colors relative group`}
               >
                 {item}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${darkMode ? 'bg-white' : 'bg-black'} transition-all group-hover:w-full`}></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 via-orange-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 transition-all group-hover:w-full"></span>
               </button>
             ))}
             {/* Botón de Cambio de Modo */}
@@ -252,17 +342,17 @@ const App = () => {
           <div className="animate-in fade-in zoom-in duration-1000 order-last md:order-none">
             <div className="relative">
               <div className={`absolute -inset-4 border rounded-3xl rotate-3 hidden md:block ${darkMode ? 'border-white/10' : 'border-gray-300'}`}></div>
-              <div className={`backdrop-blur-md p-6 md:p-12 rounded-3xl border transition-all duration-500 ${
+              <div className={`group backdrop-blur-md p-6 md:p-12 rounded-3xl border transition-all duration-500 ${
                 darkMode 
                   ? 'bg-zinc-900/80 border-white/10 hover:border-white/30 hover:bg-zinc-800/80' 
                   : 'bg-white/60 border-gray-200/50 hover:border-gray-300 hover:bg-white/80'
-              }`}>
-                <p className={`md:text-lg italic leading-relaxed ${darkMode ? 'text-zinc-300 md:text-zinc-400' : 'text-gray-700'}`}>
+              } hover:bg-gradient-to-r hover:from-red-500/10 hover:via-green-500/10 hover:to-blue-500/10`}>
+                <p className={`md:text-lg italic leading-relaxed transition-colors duration-300 ${darkMode ? 'text-zinc-300 md:text-zinc-400 group-hover:text-white' : 'text-gray-700 group-hover:text-black'}`}>
                   "Desde nuestra creación en el barrio Santander, PROMADIN se ha dedicado a transformar vidas a través del amor, el respeto y la pedagogía especializada. Creemos que cada individuo posee talentos únicos."
                 </p>
                 <div className="mt-8 flex items-center gap-4">
-                  <div className={`w-12 h-0.5 ${darkMode ? 'bg-white/30' : 'bg-gray-400'}`}></div>
-                  <span className={`font-bold tracking-widest uppercase text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>Legado y Compromiso</span>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <span className={`font-bold tracking-widest uppercase text-sm transition-colors duration-300 ${darkMode ? 'text-white group-hover:text-white' : 'text-gray-900 group-hover:text-black'}`}>Legado y Compromiso</span>
                 </div>
               </div>
             </div>
@@ -334,17 +424,47 @@ const App = () => {
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {workshops.map((workshop, index) => (
-              <div key={index} className="animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: `${index * 50}ms` }}>
+              <button
+                key={index}
+                onClick={() => openWorkshopModal(workshop)}
+                className="animate-in fade-in slide-in-from-bottom-4 text-left"
+                style={{ animationDelay: `${index * 50}ms` }}
+                aria-label={`Abrir detalles de ${workshop.title}`}
+              >
                 <WorkshopCard 
                   icon={workshop.icon}
                   title={workshop.title}
                   subtitle={workshop.subtitle}
                 />
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {isWorkshopModalOpen && selectedWorkshop && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={closeWorkshopModal}>
+          <div className="relative w-full max-w-4xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="absolute top-4 right-4 rounded-full p-2 bg-white/20 text-white hover:bg-white/40" 
+              onClick={closeWorkshopModal}
+              aria-label="Cerrar modal"
+            >
+              ✕
+            </button>
+            <img
+              src={selectedWorkshop.image}
+              alt={selectedWorkshop.title}
+              onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/1200x800?text=Imagen+no+disponible'; }}
+              className="w-full h-64 md:h-96 object-cover rounded-2xl mb-5"
+              loading="lazy"
+            />
+            <h3 className="text-2xl font-bold mb-3 text-white">{selectedWorkshop.title}</h3>
+            <p className="text-sm mb-4 text-white/80">{selectedWorkshop.subtitle}</p>
+            <p className="text-base text-white/90">{selectedWorkshop.description}</p>
+          </div>
+        </div>
+      )}
 
       {/* Contacto */}
       <section id="contacto" className={`py-32 px-4 sm:px-6 relative overflow-hidden ${darkMode ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}>
@@ -371,7 +491,7 @@ const App = () => {
                 <div className={`flex items-center gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-3 lg:p-0 rounded-xl lg:rounded-none transition-colors ${
                   darkMode ? 'hover:bg-white/5' : 'hover:bg-gray-100'
                 }`}>
-                  <div className={`p-3 sm:p-4 rounded-full flex-shrink-0 transition-all group-hover:transition-all ${
+                  <div className={`p-3 sm:p-4 rounded-full flex-shrink-0 transition-all ${
                     darkMode 
                       ? 'bg-white/5 group-hover:bg-white group-hover:text-black' 
                       : 'bg-gray-200 group-hover:bg-gray-900 group-hover:text-white'
