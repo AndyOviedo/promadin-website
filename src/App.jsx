@@ -455,6 +455,9 @@ const App = () => {
             <div className="relative">
               {/* Overlay de protección sutil */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 rounded-2xl pointer-events-none z-5"></div>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                <span className="text-white/25 text-sm md:text-base font-bold tracking-widest uppercase">PROTEGIDO - NO COMPARTIR</span>
+              </div>
               <img
                 src={selectedWorkshop.image}
                 alt={selectedWorkshop.title}
